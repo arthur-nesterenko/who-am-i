@@ -1,5 +1,6 @@
 import { css } from '@emotion/core';
 import emotionReset from 'emotion-reset';
+import colors from './theme/colors';
 
 const globalStyles = css`
   ${emotionReset}
@@ -29,6 +30,15 @@ const globalStyles = css`
   p {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
+  }
+  a {
+    text-decoration: none;
+    color: ${colors.primary};
+    font-weight: 500;
+  }
+  [href^='mailto'] {
+    direction: rtl;
+    unicode-bidi: bidi-override;
   }
 `;
 
