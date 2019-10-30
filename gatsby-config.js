@@ -69,6 +69,7 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-reading-time`,
         ],
       },
     },
@@ -76,7 +77,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-emotion`,
     {
       resolve: 'gatsby-remark-external-links',
       options: {
@@ -153,20 +153,11 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-typography`,
       options: {
-        fonts: [
-          {
-            family: `Montserrat`,
-            variants: [`400`, `500`, `500i`, `600`, `700`, `900`, `900i`],
-            subsets: [`cyrillic`],
-          },
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`],
-          },
-        ],
+        pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-emotion`,
   ],
 };
