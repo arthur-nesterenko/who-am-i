@@ -1,11 +1,12 @@
 import React from 'react';
 import { node } from 'prop-types';
 import { Helmet } from 'react-helmet';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/styles';
+import { Global } from '@emotion/core';
+import globalStyles from '@/assets/global-styles';
 import theme from '@/assets/theme';
+import { ThemeProvider } from 'emotion-theming';
 
-export default function AppLayout({ children }) {
+function AppLayout({ children }) {
   return (
     <React.Fragment>
       <Helmet>
@@ -13,13 +14,9 @@ export default function AppLayout({ children }) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
         />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-          rel="stylesheet"
-        />
       </Helmet>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
+        <Global styles={globalStyles} />
         {children}
       </ThemeProvider>
     </React.Fragment>
@@ -29,3 +26,5 @@ export default function AppLayout({ children }) {
 AppLayout.propTypes = {
   children: node,
 };
+
+export default AppLayout;

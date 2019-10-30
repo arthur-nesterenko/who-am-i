@@ -1,21 +1,61 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import styled from '@emotion/styled';
+import PageLayout from '@/layouts/page-layout';
+import Avatar from '@/components/avatar';
+import Navigation from '@/components/navigation';
+import StyledSocialLinkList from '@/components/social-link-list';
+import Content from '@/components/content';
 
-import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/seo';
+const StyledWrapper = styled.section`
+  max-width: 820px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content 20px;
+  grid-gap: 50px;
+  justify-content: center;
+  align-items: center;
+`;
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-);
+const IndexPage = ({ data: { page } }) => {
+  return (
+    <PageLayout withHeader={false}>
+      <StyledWrapper>
+        <div>
+          <Avatar />
+        </div>
+        <div>
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '1.7rem',
+              textTransform: 'capitalize',
+              marginBottom: '15px',
+            }}
+          >
+            {page.frontmatter.title}
+          </h1>
+          <Content
+            darkContent={false}
+            dangerouslySetInnerHTML={{ __html: page.html }}
+          />
+        </div>
+        <StyledSocialLinkList />
+        <Navigation />
+      </StyledWrapper>
+    </PageLayout>
+  );
+};
+
+export const homeQuery = graphql`
+  query QueryHome {
+    page: markdownRemark(fields: { directoryName: { eq: "home" } }) {
+      frontmatter {
+        title
+      }
+      html
+    }
+  }
+`;
 
 export default IndexPage;
