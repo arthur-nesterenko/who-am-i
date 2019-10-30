@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const StyledSocialLinkList = styled.ul`
   display: grid;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(24px, max-content));

@@ -11,6 +11,7 @@ const StyledAvatar = styled.img`
   padding: ${p => p.borderSize}px;
   width: ${p => p.size}px;
   height: ${p => p.size}px;
+  margin: 0;
 `;
 
 export const StyledAvatarPropTypes = {

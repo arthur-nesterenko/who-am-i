@@ -5,7 +5,7 @@ const StyledHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  grid-template-columns: 60px 175px;
+  grid-template-columns: 60px 275px;
   grid-auto-columns: max-content;
   grid-gap: 10px;
   max-width: 820px;

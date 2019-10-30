@@ -5,10 +5,10 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const StyledNavLink = styled(AniLink)`
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: inherit;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 const activeStyles = css`

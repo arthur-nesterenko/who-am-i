@@ -3,7 +3,7 @@ import React from 'react';
 import StyledAvatar, { StyledAvatarPropTypes } from './styled-avatar';
 
 const Avatar = props => {
-  return <StyledAvatar {...props} alt={'avatar'} />;
+  return <StyledAvatar {...props} alt={'Arthur Nesterenko'} />;
 };
 
 Avatar.propTypes = {

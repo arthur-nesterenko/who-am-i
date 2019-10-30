@@ -4,14 +4,13 @@ import { css } from '@emotion/core';
 
 const Heading = styled.h1`
   ${p => css(p.theme.heading[p.variant])};
-  font-family: ${p => p.theme.fontFamily};
 `;
 
 Heading.defaultProps = {
-  variant: 'primary',
+  variant: 'dark',
 };
 Heading.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'dark']),
 };
 
 export default Heading;
