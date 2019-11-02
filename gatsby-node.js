@@ -44,6 +44,22 @@ exports.createPages = ({ graphql, actions }) => {
                     slug
                   }
                 }
+                next {
+                  fields {
+                    slug
+                  }
+                  frontmatter {
+                    title
+                  }
+                }
+                previous {
+                  fields {
+                    slug
+                  }
+                  frontmatter {
+                    title
+                  }
+                }
               }
             }
           }
@@ -56,8 +72,10 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Create posts and pages.
         result.data.allMarkdownRemark.edges.forEach(edge => {
-          const slug = edge.node.fields.slug;
-          const id = edge.node.id;
+          const slug = _.get(edge, 'node.fields.slug');
+          const id = _.get(edge, 'node.id');
+          const next = _.get(edge, 'next', null);
+          const previous = _.get(edge, 'previous', null);
 
           createPage({
             path: `/blog${slug}`,
@@ -65,6 +83,8 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               slug: slug,
               id,
+              next,
+              previous,
             },
           });
         });
