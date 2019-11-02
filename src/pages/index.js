@@ -5,31 +5,35 @@ import Avatar from '@/components/avatar';
 import Navigation from '@/components/navigation';
 import StyledSocialLinkList from '@/components/social-link-list';
 import Content from '@/components/content';
+import useSiteMetadata from '@/hooks/use-site-metadata';
 
 const StyledWrapper = styled.section`
   max-width: 820px;
   margin: auto;
   display: grid;
   grid-template-columns: max-content 1fr;
-  grid-template-rows: max-content 20px;
+  grid-template-rows: repeat(2 min-content);
   grid-gap: 50px;
+  grid-row-gap: 10px;
   justify-content: center;
   align-items: center;
 `;
 
 const IndexPage = ({ data: { page } }) => {
+  const { authorTwitterAccount } = useSiteMetadata();
   return (
     <PageLayout withHeader={false}>
       <StyledWrapper>
         <div>
-          <Avatar />
+          <a href={`https://twitter.com/${authorTwitterAccount}`}>
+            <Avatar />
+          </a>
         </div>
         <div>
           <h1
             style={{
               color: 'white',
-              fontSize: '1.7rem',
-              textTransform: 'capitalize',
+              fontSize: '1.5rem',
               marginBottom: '15px',
             }}
           >

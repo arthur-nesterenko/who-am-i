@@ -6,7 +6,27 @@ import Content from '@/components/content';
 import Heading from '@/components/heading';
 import SocialLinkList from '@/components/social-link-list';
 import Divider from '@/components/divider';
+import { css } from '@emotion/core';
 
+const skillList = props => css`
+  .skills {
+    h5 {
+      margin: 0;
+    }
+    ul {
+      margin: 15px 0;
+      li {
+        &::before {
+  content: "\\2022";  
+  color: ${props.colors.primary};
+  font-weight: bold; 
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em; 
+      }
+    }
+  }
+`;
 const AboutPage = ({ data: { page } }) => (
   <PageLayout layout="white">
     <Container>
@@ -15,7 +35,10 @@ const AboutPage = ({ data: { page } }) => (
       <Heading as="h2" variant="secondary">
         {page.frontmatter.subTitle}
       </Heading>
-      <Content dangerouslySetInnerHTML={{ __html: page.html }} />
+      <Content
+        css={skillList}
+        dangerouslySetInnerHTML={{ __html: page.html }}
+      />
       <Divider />
       <SocialLinkList iconTheme="dark" />
     </Container>

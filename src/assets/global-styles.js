@@ -24,8 +24,10 @@ const globalStyles = css`
     }
   }
   [href^='mailto'] {
-    direction: rtl;
-    unicode-bidi: bidi-override;
+    &:not(.mail) {
+      direction: rtl;
+      unicode-bidi: bidi-override;
+    }
   }
   ol,
   ul,
