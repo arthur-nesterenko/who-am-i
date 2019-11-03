@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
 import SEO from '../components/seo';
 import PageLayout from '@/layouts/page-layout';
 import Container from '@/components/container';
 import BlogList, { blogPostPropTypes } from '@/components/blog-list';
 import { FaRss } from 'react-icons/fa';
+import { css } from '@emotion/core';
+
+const centerText = css`
+  text-align: center;
+`;
 
 const BlogPage = ({
   data: {
@@ -14,20 +19,26 @@ const BlogPage = ({
 }) => {
   return (
     <PageLayout layout="white">
-      <SEO title="Blog" description="My personal blog" />
+      <SEO title="Blog" />
       <Container>
-        <BlogList posts={edges} />
-        <div style={{ float: 'right' }}>
-          <a
-            href="/rss.xml"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="rss"
-            aria-label="rss"
-          >
-            <FaRss size={24} />
-          </a>
-        </div>
+        {edges.length === 0 ? (
+          <h1 css={centerText}>There are no posts yet 🤷🏻‍♂️ </h1>
+        ) : (
+          <Fragment>
+            <BlogList posts={edges} />
+            <div style={{ float: 'right' }}>
+              <a
+                href="/rss.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="rss"
+                aria-label="rss"
+              >
+                <FaRss size={24} />
+              </a>
+            </div>
+          </Fragment>
+        )}
       </Container>
     </PageLayout>
   );

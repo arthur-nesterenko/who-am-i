@@ -6,6 +6,8 @@ import Navigation from '@/components/navigation';
 import StyledSocialLinkList from '@/components/social-link-list';
 import Content from '@/components/content';
 import useSiteMetadata from '@/hooks/use-site-metadata';
+import SEO from '@/components/seo';
+import { css } from '@emotion/core';
 
 const StyledWrapper = styled.section`
   max-width: 820px;
@@ -19,10 +21,17 @@ const StyledWrapper = styled.section`
   align-items: center;
 `;
 
+const title = props => css`
+  color: ${props.colors.white};
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+`;
+
 const IndexPage = ({ data: { page } }) => {
   const { authorTwitterAccount } = useSiteMetadata();
   return (
     <PageLayout withHeader={false}>
+      <SEO title="Home" />
       <StyledWrapper>
         <div>
           <a href={`https://twitter.com/${authorTwitterAccount}`}>
@@ -30,15 +39,7 @@ const IndexPage = ({ data: { page } }) => {
           </a>
         </div>
         <div>
-          <h1
-            style={{
-              color: 'white',
-              fontSize: '1.5rem',
-              marginBottom: '15px',
-            }}
-          >
-            {page.frontmatter.title}
-          </h1>
+          <h1 css={title}>{page.frontmatter.title}</h1>
           <Content
             darkContent={false}
             dangerouslySetInnerHTML={{ __html: page.html }}

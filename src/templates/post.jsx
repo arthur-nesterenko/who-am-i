@@ -7,6 +7,8 @@ import Image from 'gatsby-image';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import SEO from '@/components/seo';
+import get from 'lodash/get';
 
 const PostFooterLinks = styled.ul`
   display: flex;
@@ -36,6 +38,10 @@ export default function PostTemplate({
 }) {
   return (
     <PageLayout withHeader={true} layout="white">
+      <SEO
+        title={post.frontmatter.title}
+        description={get(post, 'frontmatter.metaDesciption')}
+      />
       <Container as="article" style={{ padding: '125px 0' }}>
         <header>
           <AniLink swipe direction="right" to="/blog">
