@@ -9,6 +9,7 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import SEO from '@/components/seo';
 import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 const PostFooterLinks = styled.ul`
   display: flex;
@@ -71,7 +72,6 @@ export default function PostTemplate({
             />
           )}
         </header>
-        <aside dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
         <div role="content" dangerouslySetInnerHTML={{ __html: post.html }} />
         <footer>
           <PostFooterLinks>
@@ -122,7 +122,6 @@ PostTemplate.propTypes = {
         title: PropTypes.string.isRequired,
         cover: PropTypes.object,
         category: PropTypes.string,
-        subTitle: PropTypes.string,
       }),
     }),
     html: PropTypes.string,
@@ -131,7 +130,10 @@ PostTemplate.propTypes = {
 };
 export const postQuery = graphql`
   query QueryPostById($id: String!) {
-    post: markdownRemark(id: { eq: $id }) {
+    post: markdownRemark(
+      id: { eq: $id }
+      frontmatter: { status: { ne: "draft" } }
+    ) {
       frontmatter {
         category
         date(formatString: "MMMM DD, YYYY")
@@ -150,7 +152,6 @@ export const postQuery = graphql`
         }
       }
       html
-      tableOfContents
     }
   }
 `;

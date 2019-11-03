@@ -7,6 +7,7 @@ import Heading from '@/components/heading';
 import SocialLinkList from '@/components/social-link-list';
 import Divider from '@/components/divider';
 import { css } from '@emotion/core';
+import { graphql } from 'gatsby';
 
 const skillList = props => css`
   .skills {
@@ -50,7 +51,6 @@ export const aboutQuery = graphql`
     page: markdownRemark(fields: { directoryName: { eq: "about" } }) {
       frontmatter {
         title
-        subTitle
       }
       html
     }

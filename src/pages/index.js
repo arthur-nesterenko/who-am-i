@@ -8,6 +8,7 @@ import Content from '@/components/content';
 import useSiteMetadata from '@/hooks/use-site-metadata';
 import SEO from '@/components/seo';
 import { css } from '@emotion/core';
+import { graphql } from 'gatsby';
 
 const StyledWrapper = styled.section`
   max-width: 820px;

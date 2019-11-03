@@ -58,6 +58,7 @@ module.exports = {
             options: {
               maxWidth: 800,
               backgroundColor: 'transparent',
+              withWebp: true,
             },
           },
           {
@@ -126,7 +127,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   limit: 1000,
-                  sort: { order: DESC, fields: [fields___prefix] },
+                  sort: { order: DESC, fields: [frontmatter___date] },
                   filter: { id: { regex: "//posts//" } }
                 ) {
                   edges {

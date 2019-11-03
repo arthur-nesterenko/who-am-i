@@ -1,6 +1,7 @@
 ---
+
 title: Who am i ?
-subTitle:
+
 ---
 
 Hello, I'm Arthur. I'm a Software Engineer made in Ukraine.

@@ -55,7 +55,10 @@ BlogPage.propTypes = {
 export const blogPageQuery = graphql`
   query BlogPageQuery {
     posts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//posts//" } }
+      filter: {
+        fileAbsolutePath: { regex: "//posts//" }
+        frontmatter: { status: { ne: "draft" } }
+      }
     ) {
       edges {
         node {
