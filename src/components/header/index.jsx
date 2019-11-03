@@ -8,7 +8,7 @@ const Header = ({ animationType }) => {
   return (
     <StyledHeader>
       <AniLink to="/" swipe direction="down">
-        <Avatar size={50} borderSize={2} />
+        <Avatar size={75} borderSize={2} />
       </AniLink>
       <Navigation animationType={animationType} />
     </StyledHeader>

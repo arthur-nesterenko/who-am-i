@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import StyledAvatar, { StyledAvatarPropTypes } from './styled-avatar';
+import useAvatar from './use-avatar';
+import useSiteMetadata from '@/hooks/use-site-metadata';
+import { useTheme } from 'emotion-theming';
 
 const Avatar = props => {
-  return <StyledAvatar {...props} alt={'Arthur Nesterenko'} />;
+  const avatar = useAvatar();
+  const data = useSiteMetadata();
+  const theme = useTheme();
+  return (
+    <StyledAvatar
+      {...props}
+      alt={data.author}
+      objectFit="contain"
+      backgroundColor={theme.colors.white}
+      fluid={avatar.childImageSharp.fluid}
+    />
+  );
 };
 
 Avatar.propTypes = {
   ...StyledAvatarPropTypes,
-  src: PropTypes.string,
-};
-
-Avatar.defaultProps = {
-  src: 'https://avatars3.githubusercontent.com/u/13137529?s=460&v=4',
 };
 
 export default Avatar;
