@@ -4,7 +4,7 @@ module.exports = {
   siteTitle: "Arthur's Personal Blog.",
   shortSiteTitle: "Arthur's Blog.", // <title> ending for posts and pages
   siteDescription: "It's the place where I share my thoughts.",
-  siteUrl: 'http://0.0.0.0',
+  siteUrl: 'https://arthur-nesterenko.github.io',
   pathPrefix: "/",
   siteImage: "",
   siteLanguage: "en",
