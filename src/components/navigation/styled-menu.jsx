@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 const StyledMenu = styled.ul`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, 100px);
+  justify-content: center;
+  grid-template-columns: min-content min-content;
   grid-auto-columns: max-content;
   grid-gap: 15px;
   width: 100%;

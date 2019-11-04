@@ -4,8 +4,10 @@ import StyledFooter from './styled-footer';
 const Footer = () => {
   return (
     <StyledFooter>
+      <i>© 2019 Arthur Nesterenko Blog.</i>
       <i>
-        © 2019 Arthur Nesterenko Blog. Powered by{' '}
+        {' '}
+        Powered by{' '}
         <a href="https://gatsbyjs.org" target="_blank">
           Gatsby
         </a>{' '}

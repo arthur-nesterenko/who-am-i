@@ -13,11 +13,23 @@ import { graphql } from 'gatsby';
 const StyledWrapper = styled.section`
   max-width: 820px;
   margin: auto;
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: repeat(2 min-content);
-  grid-gap: 50px;
-  grid-row-gap: 10px;
+  ${p => {
+    console.log('p', p);
+    return css`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 14px;
+
+      ${p.theme.breakpoints.tablet} {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: repeat(2 min-content);
+        grid-gap: 50px;
+        grid-row-gap: 10px;
+      }
+    `;
+  }};
   justify-content: center;
   align-items: center;
 `;
@@ -26,6 +38,9 @@ const title = props => css`
   color: ${props.colors.white};
   font-size: 1.5rem;
   margin-bottom: 15px;
+  ${props.breakpoints.mq({
+    textAlign: ['center', 'left'],
+  })}
 `;
 
 const IndexPage = ({ data: { page } }) => {

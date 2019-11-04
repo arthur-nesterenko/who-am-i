@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const StyledNavigation = styled.nav`
-  width: auto;
+  width: 100%;
   text-align: center;
 `;
 

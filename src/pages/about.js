@@ -30,18 +30,22 @@ const skillList = props => css`
 `;
 const AboutPage = ({ data: { page } }) => (
   <PageLayout layout="white">
-    <Container>
+    <Container as="article">
       <SEO title="About" />
-      <Heading>{page.frontmatter.title}</Heading>
-      <Heading as="h2" variant="secondary">
-        {page.frontmatter.subTitle}
-      </Heading>
+      <header>
+        <Heading>{page.frontmatter.title}</Heading>
+        <Heading as="h2" variant="secondary">
+          {page.frontmatter.subTitle}
+        </Heading>
+      </header>
       <Content
         css={skillList}
         dangerouslySetInnerHTML={{ __html: page.html }}
       />
       <Divider />
-      <SocialLinkList iconTheme="dark" />
+      <footer>
+        <SocialLinkList iconTheme="dark" />
+      </footer>
     </Container>
   </PageLayout>
 );
