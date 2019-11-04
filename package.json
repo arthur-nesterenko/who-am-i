@@ -7,8 +7,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
-    "@mdx-js/mdx": "^1.0.21",
-    "@mdx-js/react": "^1.0.21",
     "emotion-theming": "^10.0.19",
     "facepaint": "^1.2.1",
     "gatsby": "^2.17.4",
@@ -51,7 +49,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "gh-pages": "^2.0.1",
     "husky": "^3.0.0",
     "lint-staged": "^9.1.0",
     "prettier": "^1.18.2"
@@ -67,8 +64,7 @@
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "deploy": "yarn build && gh-pages -d public -r https://$GITHUB_TOKEN@github.com/arthur-nesterenko/arthur.nesterenko.github.io.git"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "husky": {
     "hooks": {
