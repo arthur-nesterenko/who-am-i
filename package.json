@@ -10,6 +10,7 @@
     "@mdx-js/mdx": "^1.0.21",
     "@mdx-js/react": "^1.0.21",
     "emotion-theming": "^10.0.19",
+    "facepaint": "^1.2.1",
     "gatsby": "^2.17.4",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -76,6 +77,7 @@
   },
   "lint-staged": {
     "{gatsby-*.js,src/**/*.{js,jsx,json,css}}": [
+      "yarn lint",
       "yarn format",
       "git add"
     ]
