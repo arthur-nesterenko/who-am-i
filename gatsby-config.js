@@ -160,5 +160,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-151453557-1',
+      },
+    },
   ],
 };
