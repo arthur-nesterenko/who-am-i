@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "arthur.nesterenko",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A personal blog developing  by Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Arthur Nesterenko <arthur.nesterenko.dev@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
@@ -48,6 +48,7 @@
     "typography-theme-funston": "^0.16.19"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "gh-pages": "^2.0.1",
     "husky": "^3.0.0",
     "lint-staged": "^9.1.0",
@@ -58,13 +59,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby clean && gatsby develop",
     "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css}}'",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "deploy": "yarn build && gh-pages -d public -r https://$GITHUB_TOKEN@github.com/arthur-nesterenko/arthur.nesterenko.github.io.git"
   },
   "husky": {
     "hooks": {
@@ -79,6 +81,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arthur-nesterenko/who-am-i/"
-  }
+    "url": "https://github.com/arthur-nesterenko/arthur.nesterenko.github.io"
+  },
+  "homepage": "http://arthur.nesterenko.github.io/"
 }

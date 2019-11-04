@@ -1,21 +1,14 @@
 language: node_js
-cache:
-  directories:
-    - node_modules
-    - .cache
-    - public
 node_js:
   - '10'
-git:
-  depth: 3
+install:
+  - yarn install
 script:
   - yarn build
 deploy:
   provider: pages
-  script: yarn install && yarn run deploy
   skip_cleanup: true
-  local-dir: public
   github_token: $GITHUB_TOKEN
-  keep_history: true
-#  on:
-#    branch: master
+  target_branch: master
+  repo: arthur-nesterenko/arthur.nesterenko.github.io
+  local_dir: ./public
