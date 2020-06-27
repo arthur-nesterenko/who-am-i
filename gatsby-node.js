@@ -34,7 +34,10 @@ exports.createPages = ({ graphql, actions }) => {
         `
           {
             allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "//posts//" } }
+              filter: {
+                fileAbsolutePath: { regex: "//posts//" }
+                frontmatter: { status: { ne: "draft" } }
+              }
               limit: 1000
             ) {
               edges {

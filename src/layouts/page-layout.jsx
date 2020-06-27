@@ -15,6 +15,8 @@ const StyledMain = styled.main`
   min-height: 100vh;
 `;
 
+const animationType = { fade: true };
+
 const PageLayout = ({ children, layout, withHeader }) => {
   const { colors } = useTheme();
   const bg = colors[layout];
@@ -25,7 +27,7 @@ const PageLayout = ({ children, layout, withHeader }) => {
 
   return (
     <StyledMain bg={bg} gradient={gradient} between={withHeader}>
-      {withHeader && <Header animationType={{ fade: true }} />}
+      {withHeader && <Header animationType={animationType} />}
       {children}
       <Footer />
     </StyledMain>

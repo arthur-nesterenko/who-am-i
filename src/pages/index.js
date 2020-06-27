@@ -14,7 +14,6 @@ const StyledWrapper = styled.section`
   max-width: 820px;
   margin: auto;
   ${p => {
-    console.log('p', p);
     return css`
       display: flex;
       flex-direction: column;

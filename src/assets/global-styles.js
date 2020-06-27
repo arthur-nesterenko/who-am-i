@@ -32,9 +32,25 @@ const globalStyles = css`
   ol,
   ul,
   li {
-    list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  ol {
+    list-style-position: inside;
+  }
+
+  li {
+    margin: 15px 0;
+  }
+
+  li > p {
+    display: inline-block;
+    margin-bottom: 0;
   }
 `;
 
