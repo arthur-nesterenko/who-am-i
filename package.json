@@ -43,6 +43,7 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
+    "react-share": "^4.2.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-funston": "^0.16.19"

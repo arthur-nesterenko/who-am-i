@@ -11,6 +11,8 @@ import SEO from '@/components/seo';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
 import BannerCredit from '@/components/banner-credit';
+import Share from '@/components/share';
+import useSiteMetadata from '@/hooks/use-site-metadata';
 
 const StyledHeader = styled.header`
   margin-bottom: 2rem;
@@ -42,7 +44,9 @@ export default function PostTemplate({
   data: { post },
   pageContext: { next, previous },
 }) {
-  console.log('data', post);
+  const config = useSiteMetadata();
+
+  const blogPostUrl = `${config.siteUrl}${post.fields.slug}`;
 
   return (
     <PageLayout withHeader={true} layout="white">
@@ -90,6 +94,11 @@ export default function PostTemplate({
         </StyledHeader>
         <div role="content" dangerouslySetInnerHTML={{ __html: post.html }} />
         <footer>
+          <Share
+            title={post.frontmatter.title}
+            twitterHandle={config.twitterHandle}
+            url={blogPostUrl}
+          />
           <PostFooterLinks>
             {previous && (
               <li>
@@ -167,6 +176,7 @@ export const postQuery = graphql`
         readingTime {
           text
         }
+        slug
       }
       html
     }

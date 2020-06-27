@@ -4,4 +4,5 @@ module.exports = {
   white: 'white',
   dark: '#212121',
   grey: '#bdbdbd',
+  twitter: '#1DA1F2',
 };
