@@ -51,6 +51,7 @@ export default function PostTemplate({
   return (
     <PageLayout withHeader={true} layout="white">
       <SEO
+        metaImage={get(post, 'frontmatter.cover.childImageSharp.fluid.src')}
         title={post.frontmatter.title}
         description={get(post, 'frontmatter.metaDesciption')}
       />

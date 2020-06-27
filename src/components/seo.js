@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import useSiteMetadata from '@/hooks/use-site-metadata';
+import defaultMetaImage from '../../content/posts/initial/cover.jpg';
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, metaImage }) {
   const siteMetadata = useSiteMetadata();
 
   const metaDescription = description || siteMetadata.description;
+  const image = `${siteMetadata.siteUrl}${metaImage || defaultMetaImage}`;
 
   return (
     <Helmet
@@ -21,6 +23,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          name: 'image',
+          content: image,
+        },
+        {
           property: `og:title`,
           content: title,
         },
@@ -31,6 +37,10 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: image,
         },
         {
           name: `twitter:card`,
@@ -48,6 +58,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: image,
+        },
       ].concat(meta)}
     />
   );
@@ -64,6 +78,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  metaImage: PropTypes.string,
 };
 
 export default SEO;
