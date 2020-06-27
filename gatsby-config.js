@@ -10,6 +10,7 @@ module.exports = {
     author: config.authorName,
     contactEmail: config.contactEmail,
     authorTwitterAccount: config.authorTwitterAccount,
+    twitterHandle: `@${config.authorTwitterAccount}`,
   },
   plugins: [
     {

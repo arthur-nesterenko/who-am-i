@@ -6,11 +6,13 @@ const useSiteMetadata = () => {
       query SiteMetaData {
         site {
           siteMetadata {
+            siteUrl
             contactEmail
             title
             description
             author
             authorTwitterAccount
+            twitterHandle
             authorSocialLinks {
               name
               url
