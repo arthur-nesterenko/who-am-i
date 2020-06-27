@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PageLayout from '@/layouts/page-layout';
 import Container from '@/components/container';
@@ -10,6 +10,11 @@ import styled from '@emotion/styled';
 import SEO from '@/components/seo';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
+import BannerCredit from '@/components/banner-credit';
+
+const StyledHeader = styled.header`
+  margin-bottom: 2rem;
+`;
 
 const PostFooterLinks = styled.ul`
   display: flex;
@@ -37,6 +42,8 @@ export default function PostTemplate({
   data: { post },
   pageContext: { next, previous },
 }) {
+  console.log('data', post);
+
   return (
     <PageLayout withHeader={true} layout="white">
       <SEO
@@ -44,7 +51,7 @@ export default function PostTemplate({
         description={get(post, 'frontmatter.metaDesciption')}
       />
       <Container as="article" style={{ padding: '125px 0' }}>
-        <header>
+        <StyledHeader>
           <AniLink swipe direction="right" to="/blog">
             <FaAngleLeft size={12} />
             All posts
@@ -64,14 +71,23 @@ export default function PostTemplate({
             </small>
           </div>
           {post.frontmatter.cover && (
-            <Image
-              objectFit="contain"
-              title={post.frontmatter.title}
-              alt={post.frontmatter.title}
-              fluid={post.frontmatter.cover.childImageSharp.fluid}
-            />
+            <Fragment>
+              <Image
+                objectFit="contain"
+                title={post.frontmatter.title}
+                alt={post.frontmatter.title}
+                fluid={post.frontmatter.cover.childImageSharp.fluid}
+              />
+              {post.frontmatter.bannerCredit &&
+                post.frontmatter.bannerCredit.length && (
+                  <BannerCredit
+                    link={post.frontmatter.bannerCredit[1]}
+                    name={post.frontmatter.bannerCredit[0]}
+                  />
+                )}
+            </Fragment>
           )}
-        </header>
+        </StyledHeader>
         <div role="content" dangerouslySetInnerHTML={{ __html: post.html }} />
         <footer>
           <PostFooterLinks>
@@ -145,6 +161,7 @@ export const postQuery = graphql`
             }
           }
         }
+        bannerCredit
       }
       fields {
         readingTime {
