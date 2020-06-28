@@ -46,7 +46,7 @@ export default function PostTemplate({
 }) {
   const config = useSiteMetadata();
 
-  const blogPostUrl = `${config.siteUrl}/${postSlug}`;
+  const blogPostUrl = `${config.siteUrl}${postSlug}`;
 
   return (
     <PageLayout withHeader={true} layout="white">
