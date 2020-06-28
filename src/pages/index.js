@@ -6,7 +6,7 @@ import Navigation from '@/components/navigation';
 import StyledSocialLinkList from '@/components/social-link-list';
 import Content from '@/components/content';
 import useSiteMetadata from '@/hooks/use-site-metadata';
-import SEO from '@/components/seo';
+import Seo from '@/components/seo';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
 
@@ -46,7 +46,7 @@ const IndexPage = ({ data: { page } }) => {
   const { authorTwitterAccount } = useSiteMetadata();
   return (
     <PageLayout withHeader={false}>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <StyledWrapper>
         <div>
           <a href={`https://twitter.com/${authorTwitterAccount}`}>

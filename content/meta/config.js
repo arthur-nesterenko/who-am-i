@@ -21,6 +21,7 @@ module.exports = {
   manifestBackgroundColor: colors.primary,
   manifestThemeColor: colors.primary,
   manifestDisplay: 'standalone',
+  organization: 'Arthur Nesterenko',
   // contact
   contactEmail: 'arthur.nesterenko.dev@gmail.com',
   // social

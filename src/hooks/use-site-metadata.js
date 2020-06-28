@@ -13,6 +13,7 @@ const useSiteMetadata = () => {
             author
             authorTwitterAccount
             twitterHandle
+            organization
             authorSocialLinks {
               name
               url

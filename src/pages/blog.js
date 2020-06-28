@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import PageLayout from '@/layouts/page-layout';
 import Container from '@/components/container';
 import BlogList, { blogPostPropTypes } from '@/components/blog-list';
@@ -19,7 +19,7 @@ const BlogPage = ({
 }) => {
   return (
     <PageLayout layout="white">
-      <SEO title="Blog" />
+      <Seo title="Blog" />
       <Container>
         {edges.length === 0 ? (
           <h1 css={centerText}>There are no posts yet 🤷🏻‍♂️ </h1>

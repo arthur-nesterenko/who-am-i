@@ -11,6 +11,7 @@ module.exports = {
     contactEmail: config.contactEmail,
     authorTwitterAccount: config.authorTwitterAccount,
     twitterHandle: `@${config.authorTwitterAccount}`,
+    organization: config.organization,
   },
   plugins: [
     {

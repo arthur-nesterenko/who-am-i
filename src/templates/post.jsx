@@ -7,7 +7,7 @@ import Image from 'gatsby-image';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import SEO from '@/components/seo';
+import Seo from '@/components/seo';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
 import BannerCredit from '@/components/banner-credit';
@@ -50,10 +50,13 @@ export default function PostTemplate({
 
   return (
     <PageLayout withHeader={true} layout="white">
-      <SEO
+      <Seo
         metaImage={get(post, 'frontmatter.cover.childImageSharp.fluid.src')}
         title={post.frontmatter.title}
-        description={get(post, 'frontmatter.metaDesciption')}
+        url={blogPostUrl}
+        isBlogPost={true}
+        description={get(post, 'frontmatter.metaDesciption', post.excerpt)}
+        frontmatter={post.frontmatter}
       />
       <Container as="article" style={{ padding: '125px 0' }}>
         <StyledHeader>
@@ -180,6 +183,7 @@ export const postQuery = graphql`
         slug
       }
       html
+      excerpt(format: PLAIN)
     }
   }
 `;

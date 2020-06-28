@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Container from '@/components/container';
 import PageLayout from '@/layouts/page-layout';
 import { css } from '@emotion/core';
@@ -28,7 +28,7 @@ const link = props => css`
 
 const NotFoundPage = () => (
   <PageLayout withHeader={false}>
-    <SEO title="404: Not found" />
+    <Seo title="404: Not found" />
     <Container css={container}>
       <div css={centerText}>
         <h1 css={title}>NOT FOUND 🤷🏻‍♂️</h1>

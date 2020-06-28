@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import PageLayout from '@/layouts/page-layout';
 import Container from '@/components/container';
 import Content from '@/components/content';
@@ -31,7 +31,7 @@ const skillList = props => css`
 const AboutPage = ({ data: { page } }) => (
   <PageLayout layout="white">
     <Container as="article">
-      <SEO title="About" />
+      <Seo title="About" />
       <header>
         <Heading>{page.frontmatter.title}</Heading>
         <Heading as="h2" variant="secondary">
