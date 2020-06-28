@@ -80,11 +80,14 @@ exports.createPages = ({ graphql, actions }) => {
           const next = _.get(edge, 'next', null);
           const previous = _.get(edge, 'previous', null);
 
+          const postSlug = `/blog${slug}`;
+
           createPage({
-            path: `/blog${slug}`,
+            path: postSlug,
             component: postTemplate,
             context: {
               slug: slug,
+              postSlug,
               id,
               next,
               previous,

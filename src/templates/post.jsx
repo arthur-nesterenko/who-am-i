@@ -42,11 +42,11 @@ const headerMeta = css`
 
 export default function PostTemplate({
   data: { post },
-  pageContext: { next, previous },
+  pageContext: { next, previous, postSlug },
 }) {
   const config = useSiteMetadata();
 
-  const blogPostUrl = `${config.siteUrl}${post.fields.slug}`;
+  const blogPostUrl = `${config.siteUrl}/${postSlug}`;
 
   return (
     <PageLayout withHeader={true} layout="white">
